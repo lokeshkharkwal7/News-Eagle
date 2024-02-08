@@ -1,5 +1,12 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
+import {
+  BrowserRouter,
+  Switch,
+  Route,
+  Link,
+  useRouteMatch,
+} from "react-router-dom";
 
 export class NavBar extends Component {
   static propTypes = {};
@@ -7,20 +14,12 @@ export class NavBar extends Component {
   render() {
     return (
       <div>
-        <nav className="navbar navbar-expand-lg bg-body-tertiary ">
-          {/* <nav className="navbar bg-body-tertiary">
-            <div className="container">
-              <a className="navbar-brand" href="#">
-                <img src="/newsicon.png" alt="" width={50} height={50} />
-              </a>
-            </div>
-          </nav> */}
-
+        <nav className="navbar navbar-expand-lg navbar-dark bg-success">
           <div className="container-fluid">
-            <a className="navbar-brand" href="#">
+            <Link className="navbar-brand" to="#">
               <img src="/newsicon.png" alt="Bootstrap" width={50} height={50} />
               News Eagle
-            </a>
+            </Link>
             <button
               className="navbar-toggler"
               type="button"
@@ -36,27 +35,72 @@ export class NavBar extends Component {
               className="collapse navbar-collapse"
               id="navbarSupportedContent"
             >
-              <ul className="navbar-nav me-auto mb-2 mb-lg-0 mx-5">
+              <ul className="navbar-nav me-auto mb-2 mb-lg-0 mx-3">
                 <li className="nav-item">
-                  <a className="nav-link active" aria-current="page" href="#">
-                    Home
-                  </a>
+                  <Link className="nav-link active" aria-current="page" to="/">
+                    general
+                  </Link>
                 </li>
                 <li className="nav-item">
-                  <a className="nav-link" href="#">
-                    About
-                  </a>
+                  <Link className="nav-link" to="/business">
+                    business
+                  </Link>
+                </li>{" "}
+                <li className="nav-item">
+                  <Link className="nav-link" to="/entertainment">
+                    entertainment
+                  </Link>
+                </li>{" "}
+                <li className="nav-item">
+                  <Link className="nav-link" to="/health">
+                    health
+                  </Link>
+                </li>{" "}
+                <li className="nav-item">
+                  <Link className="nav-link" to="/science">
+                    science
+                  </Link>
+                </li>{" "}
+                <li className="nav-item">
+                  <Link className="nav-link" to="/sports">
+                    sports
+                  </Link>
+                </li>{" "}
+                <li className="nav-item">
+                  <Link className="nav-link" to="/technology">
+                    technology
+                  </Link>
                 </li>
               </ul>
 
-              <form className="d-flex" role="search">
+              <div className="navbar-brand form-check form-switch mx-4">
                 <input
-                  className="form-control me-2"
+                  className="navbar-brand form-check-input"
+                  type="checkbox"
+                  role="switch"
+                  id="flexSwitchCheckDefault"
+                  // onClick={setTheme()}
+                />
+                <label
+                  className="nav-item nav-link"
+                  htmlFor="flexSwitchCheckDefault"
+                >
+                  Switch Modes
+                </label>
+              </div>
+
+              <form className="navbar-brand d-flex" role="search">
+                <input
+                  className="form-control me-2  mx-5"
                   type="search"
                   placeholder="Search"
                   aria-label="Search"
                 />
-                <button className="btn btn-outline-success" type="submit">
+
+                <button
+                  className="btn btn-primary text-light btn-outline-success"
+                  type="submit"
+                >
                   Search
                 </button>
               </form>
