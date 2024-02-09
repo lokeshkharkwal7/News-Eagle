@@ -1,12 +1,6 @@
 import React, { Component } from "react";
-import PropTypes from "prop-types";
-import {
-  BrowserRouter,
-  Switch,
-  Route,
-  Link,
-  useRouteMatch,
-} from "react-router-dom";
+
+import { Link } from "react-router-dom";
 
 export class NavBar extends Component {
   static propTypes = {};

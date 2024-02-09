@@ -2,32 +2,22 @@ import "./App.css";
 import NavBar from "./components/NavBar";
 import NewsContainer from "./components/NewsContainer";
 import {
-  BrowserRouter,
-  Switch,
+ 
   Route,
   Routes,
-  Link,
-  useRouteMatch,
+  
 } from "react-router-dom";
 
-// function App() {
-//   return (
 
-//     <div>
-//       <NavBar />
-//       <div className="container my-4 mb-3">
-//         <NewsContainer pageSize={18} category="science" />
-//       </div>
-//     </div>
-//   );
-// }
-
-// export default App;
 
 function App() {
   return (
+
+
     <div>
       <NavBar />
+
+    
       {/* <div className="container my-4 mb-3"> */}
      
         <Routes>
