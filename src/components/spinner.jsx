@@ -1,15 +1,15 @@
-import React, { Component } from "react";
+ 
 
-export default class Spinner extends Component {
-  render() {
+export default function Spinner() {
+ 
     return (
       <>
-        <div class="d-flex justify-content-center my-2">
+        <div className="d-flex justify-content-center my-2">
           <div className="spinner-border" role="status">
             <span className="visually-hidden">Loading...</span>
           </div>
         </div>
       </>
     );
-  }
+  
 }

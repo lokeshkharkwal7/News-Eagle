@@ -1,45 +1,76 @@
-import React, { Component } from "react";
+import React from "react";
 
-export class NewsCard extends Component {
-  static propTypes = {};
+export default function NewsCard({
+  title,
+  description,
+  author,
+  publishedAtDate,
+  publishedAtTime,
+  url,
+  fullArticle,
+  cardColor,
+}) {
+  console.log("The color that you wish to enter in the card is : ", cardColor);
 
-  render() {
-    const {
-      title,
-      url,
-      description,
-      fullArticle,
-      publishedAtDate,
-      publishedAtTime,
-      author,
-    } = this.props;
-    return (
-      <div>
-        <div className="card" style={{ width: "25rem" }}>
-          <img src={url} className="img-fluid" alt="News" />
-          <div className="card-body">
-            <h5 className="card-title">{title}</h5>
-            <p className="card-text">{description}</p>
-            <a
-              href={fullArticle}
-              target="blank"
-              className="btn btn-sm btn-primary"
+  // let cardBackground = cardColor ==="black" ? "black" : "white"
+  // let cardTextColor = cardColor ==="black" ? "white" : "black"
+  return (
+    // <div>      <div className="card" style={{ width: "24rem" , backgroundColor:color==='black'?'white':'black , color : color==='black' ? 'white' : 'black'   }}>
+    <div>
+      <div
+        className="card"
+        style={{
+          width: "24rem",
+          backgroundColor: cardColor,
+          color: cardColor === "black" ? "white" : "black",
+        }}
+      >
+        {/* <div className="card" style={{ width: "24rem", backgroundColor:   cardBackground , color:   cardTextColor }}> */}
+
+        <img
+          src={url}
+          className="img-fluid"
+          // style={{ width: "425px ", height: "250px" }}
+          alt="News"
+        />
+        <div className="card-body fs-6">
+          <h5 className="card-title">{title}</h5>
+          <p className="card-text">{description}</p>
+          <a
+            href={fullArticle}
+            target="blank"
+            className="btn btn-sm btn-primary bt-round"
+          >
+            Read More
+          </a>
+          <p className="card-text my-2 d-flex justify-content-end">
+            <small
+              className={`text-body-${
+                cardColor === "black" ? "light" : "secondary"
+              }`}
             >
-              Read More
-            </a>
-            <p class="card-text my-2 d-flex justify-content-end">
-              <small className="text-body-secondary">By {author}</small>
-            </p>
+              By {author}
+            </small>
+          </p>
 
-            <div class="card-footer text-body-secondary d-flex justify-content-between">
-              <small class="text-body-secondary">{publishedAtDate}</small>
-              <small class="text-body-secondary">{publishedAtTime}</small>
-            </div>
+          <div className="card-footer d-flex justify-content-between">
+            <small
+              className={`text-body-${
+                cardColor === "black" ? "light" : "secondary"
+              }`}
+            >
+              {publishedAtDate}
+            </small>
+            <small
+              className={`text-body-${
+                cardColor === "black" ? "light" : "secondary"
+              }`}
+            >
+              {publishedAtTime}
+            </small>
           </div>
         </div>
       </div>
-    );
-  }
+    </div>
+  );
 }
-
-export default NewsCard;
