@@ -7,14 +7,14 @@ export default function NavBar({ themeChanger, navTheme }) {
   let navlook = navTheme === "light" ? "light" : "";
   console.log(`navbar navbar-expand-lg navbar-${navlook} bg-${navColor} `);
   return (
-    <div>
+    <div className="mb-2">
       <nav
         // className={`navbar navbar-expand-lg navbar-${navlook} bg-${navColor} `}
-        className={`navbar navbar-expand-lg navbar-${navlook} bg-${navColor} `}
+        className={`navbar navbar-expand-lg navbar-${navlook} bg-${navColor} fixed-top `}
       >
         <div className="container-fluid">
           <Link className="navbar-brand text-light" to="#">
-            <img src="/newsicon.png" alt="eagle news" width={50} height={50} />
+            <img src="/newsicon.png" alt="eagle news" width={40} height={40} />
             News Eagle
           </Link>
           <button
@@ -36,36 +36,43 @@ export default function NavBar({ themeChanger, navTheme }) {
                   aria-current="page"
                   to="/"
                 >
+                  <i className="fa-solid fa-house-medical mx-1"></i>
                   General
                 </Link>
               </li>
               <li className="nav-item">
                 <Link className="nav-link text-light" to="/business">
+                  <i class="fa-solid fa-briefcase mx-1"></i>
                   Business
                 </Link>
               </li>{" "}
               <li className="nav-item">
                 <Link className="nav-link text-light" to="/entertainment">
+                  <i class="fa-solid fa-video mx-1"></i>
                   Entertainment
                 </Link>
               </li>{" "}
               <li className="nav-item">
                 <Link className="nav-link text-light" to="/health">
+                  <i className="fa-solid fa-weight-scale mx-1"></i>
                   Health
                 </Link>
               </li>{" "}
               <li className="nav-item">
                 <Link className="nav-link text-light" to="/science">
+                  <i class="fa-solid fa-flask mx-1"></i>
                   Science
                 </Link>
               </li>{" "}
               <li className="nav-item">
                 <Link className="nav-link text-light" to="/sports">
+                  <i className="fa-solid fa-table-tennis-paddle-ball mx-1"></i>
                   Sports
                 </Link>
               </li>{" "}
               <li className="nav-item ">
                 <Link className="nav-link text-light" to="/technology">
+                  <i className="fa-solid fa-laptop-code mx-1"></i>
                   Technology
                 </Link>
               </li>
@@ -78,17 +85,27 @@ export default function NavBar({ themeChanger, navTheme }) {
                 role="switch"
                 id="flexSwitchCheckDefault"
                 onClick={themeChanger}
-                // onClick={setTheme()}
               />
               <label
                 className="nav-item nav-link text-light"
                 htmlFor="flexSwitchCheckDefault"
               >
-                {navTheme === "light" ? "Dark Mode" : "Light Mode"}
+                {navTheme === "light" ? (
+                  <div
+                    className="btn btn-dark"
+                    style={{ borderRadius: "20px" }}
+                  >
+                    <i class="fa-solid fa-sun mx-1 "></i> Light Mode
+                  </div>
+                ) : (
+                  <>
+                    <i class="fa-solid fa-moon mx-1 "></i>Dark Mode
+                  </>
+                )}
               </label>
             </div>
 
-            <form className="navbar-brand d-flex" role="search">
+            {/* <form className="navbar-brand d-flex" role="search">
               <input
                 className="form-control me-2  mx-5"
                 type="search"
@@ -102,7 +119,7 @@ export default function NavBar({ themeChanger, navTheme }) {
               >
                 Search
               </button>
-            </form>
+            </form> */}
           </div>
         </div>
       </nav>

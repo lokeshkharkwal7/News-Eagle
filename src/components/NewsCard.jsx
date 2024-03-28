@@ -20,7 +20,8 @@ export default function NewsCard({
       <div
         className="card"
         style={{
-          width: "24rem",
+          width: "18rem",
+
           backgroundColor: cardColor,
           color: cardColor === "black" ? "white" : "black",
         }}
@@ -30,28 +31,24 @@ export default function NewsCard({
         <img
           src={url}
           className="img-fluid"
-          // style={{ width: "425px ", height: "250px" }}
+          style={{ width: "425px ", height: "180px" }}
           alt="News"
         />
         <div className="card-body fs-6">
-          <h5 className="card-title">{title}</h5>
-          <p className="card-text">{description}</p>
+          <h5 className="card-title" style={{ fontSize: "0.9rem" }}>
+            {" "}
+            {title}
+          </h5>
+          <p className="card-text" style={{ fontSize: "0.7rem" }}>
+            {description}
+          </p>
           <a
             href={fullArticle}
             target="blank"
-            className="btn btn-sm btn-primary bt-round"
+            className="btn btn-sm btn-primary bt-round mb-2"
           >
             Read More
           </a>
-          <p className="card-text my-2 d-flex justify-content-end">
-            <small
-              className={`text-body-${
-                cardColor === "black" ? "light" : "secondary"
-              }`}
-            >
-              By {author}
-            </small>
-          </p>
 
           <div className="card-footer d-flex justify-content-between">
             <small
@@ -69,6 +66,19 @@ export default function NewsCard({
               {publishedAtTime}
             </small>
           </div>
+          <div className="card-footer d-flex justify-content-between">
+            <p className="card-text my-2 d-flex  ">
+              <small
+                className={`text-body-${
+                  cardColor === "black" ? "light" : "secondary"
+                }`}
+                style={{ fontSize: "0.7rem" }}
+              >
+                Author : {author}
+              </small>
+            </p>
+          </div>
+          
         </div>
       </div>
     </div>

@@ -10,16 +10,13 @@ function App() {
   const [navTheme, setNavtheme] = useState("light");
   const [cardColor, setCardcolor] = useState("white");
 
-
-  const apikey = "3f33e52910804eb8982c94b4d56444a8";
-
-
+  const apikey = "d378917a12fc4fdab4e94e1faf036552";
 
   function themeChanger() {
     if (bgcolor === "white") {
       setBgcolor("black");
       setNavtheme("dark");
-      setCardcolor("black")
+      setCardcolor("black");
       document.body.style.backgroundColor = "black";
       document.body.style.color = "white";
 
@@ -28,35 +25,18 @@ function App() {
     } else {
       setBgcolor("white");
       setNavtheme("light");
-      setCardcolor("white")
+      setCardcolor("white");
       document.body.style.backgroundColor = "white";
       document.body.style.color = "black";
     }
   }
 
-  // useEffect(() => {
-  //    function CardColorChanger() {
-  //     if(document.body.style.color === 'black'){
-  //       setCardcolor("black");
-
-  //     }else{
-  //       setCardcolor("white")
-  //     }
-      
-  //   }
-  //   CardColorChanger();
-  // }, []);
-
-
-
-console.log("The value of card Color inside App js is ",cardColor)
+  console.log("The value of card Color inside App js is ", cardColor);
 
   return (
     <div>
-      <NavBar themeChanger={themeChanger} navTheme={navTheme} />
-
-      {/* <div className="container my-4 mb-3"> */}
-
+      <NavBar themeChanger={themeChanger} navTheme={navTheme} /> <br /> <br />
+      
       <Routes>
         <Route
           exact
@@ -64,9 +44,10 @@ console.log("The value of card Color inside App js is ",cardColor)
           element={
             <NewsContainer
               key="general"
-              pageSize={18}
+              pageSize={16}
               category="general"
-              apikey = {apikey} cardColor = {cardColor}
+              apikey={apikey}
+              cardColor={cardColor}
             />
           }
         />
@@ -78,12 +59,12 @@ console.log("The value of card Color inside App js is ",cardColor)
               key="business"
               pageSize={18}
               category="business"
-              apikey = {apikey} cardColor = {cardColor}
+              apikey={apikey}
+              cardColor={cardColor}
             />
           }
         />
 
-        {/* <Route exact path="/general" element={<NewsContainer key="general"  pageSize={18} category="general" />} /> */}
         <Route
           exact
           path="/entertainment"
@@ -92,7 +73,8 @@ console.log("The value of card Color inside App js is ",cardColor)
               key="entertainment"
               pageSize={18}
               category="entertainment"
-              apikey = {apikey} cardColor = {cardColor}
+              apikey={apikey}
+              cardColor={cardColor}
             />
           }
         />
@@ -104,7 +86,8 @@ console.log("The value of card Color inside App js is ",cardColor)
               key="health"
               pageSize={18}
               category="health"
-              apikey = {apikey} cardColor = {cardColor}
+              apikey={apikey}
+              cardColor={cardColor}
             />
           }
         />
@@ -116,7 +99,8 @@ console.log("The value of card Color inside App js is ",cardColor)
               key="science"
               pageSize={18}
               category="science"
-              apikey = {apikey} cardColor = {cardColor}
+              apikey={apikey}
+              cardColor={cardColor}
             />
           }
         />
@@ -128,7 +112,8 @@ console.log("The value of card Color inside App js is ",cardColor)
               key="sports"
               pageSize={18}
               category="sports"
-              apikey = {apikey} cardColor = {cardColor}
+              apikey={apikey}
+              cardColor={cardColor}
             />
           }
         />
@@ -140,13 +125,12 @@ console.log("The value of card Color inside App js is ",cardColor)
               key="technology"
               pageSize={18}
               category="technology"
-              apikey = {apikey} cardColor = {cardColor}
+              apikey={apikey}
+              cardColor={cardColor}
             />
           }
         />
       </Routes>
-
-      {/* </div> */}
     </div>
   );
 }
